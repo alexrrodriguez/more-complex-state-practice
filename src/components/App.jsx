@@ -11,25 +11,10 @@ function App() {
     const { value, name } = event.target;
 
     setContact((prevValue) => {
-      if (name === "fName") {
-        return {
-          fName: value,
-          lName: prevValue.lName,
-          email: prevValue.email,
-        };
-      } else if (name === "lName") {
-        return {
-          fName: prevValue.fName,
-          lName: value,
-          email: prevValue.email,
-        };
-      } else if (name === "email") {
-        return {
-          fName: prevValue.fName,
-          lName: prevValue.lName,
-          email: value,
-        };
-      }
+      return {
+        ...prevValue,
+        [name]: value,
+      };
     });
   }
 
@@ -50,3 +35,21 @@ function App() {
 }
 
 export default App;
+
+// Spread Operator Example
+
+// const citrus = ["Lime", "Lemon", "Orange"];
+// const fruits = ["Apples", "Banana", "Coconut", ...citrus];
+
+// const fullName = {
+//   fName: "James",
+//   lName: "Bond",
+// };
+
+// const user = {
+//   ...fullName,
+//   id: 1,
+//   username: "jamesbond007",
+// };
+
+// console.log(user);
